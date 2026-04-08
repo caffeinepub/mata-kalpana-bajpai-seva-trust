@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "PlusJakartaSans";
+  src: url("/assets/fonts/PlusJakartaSans.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    /* Trust Navy - deep royal blue */
+    --primary: 0.28 0.12 260;
+    --primary-foreground: 0.99 0 0;
+    /* Trust Saffron - warm orange */
+    --accent: 0.68 0.18 55;
+    --accent-foreground: 0.99 0 0;
+    /* Clean white background */
+    --background: 1 0 0;
+    --foreground: 0.11 0 0;
+    /* Card surfaces */
+    --card: 1 0 0;
+    --card-foreground: 0.11 0 0;
+    --popover: 1 0 0;
+    --popover-foreground: 0.11 0 0;
+    /* Secondary */
+    --secondary: 0.96 0.01 260;
+    --secondary-foreground: 0.28 0.12 260;
+    /* Muted section tint */
+    --muted: 0.96 0.005 260;
+    --muted-foreground: 0.48 0.03 260;
+    /* Destructive */
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    /* Borders and inputs */
+    --border: 0.9 0.01 260;
+    --input: 0.9 0.01 260;
+    --ring: 0.68 0.18 55;
+    /* Charts */
+    --chart-1: 0.68 0.18 55;
+    --chart-2: 0.28 0.12 260;
+    --chart-3: 0.55 0.18 150;
+    --chart-4: 0.65 0.22 30;
+    --chart-5: 0.4 0.12 290;
+    /* Sidebar */
+    --sidebar: 0.28 0.12 260;
+    --sidebar-foreground: 0.99 0 0;
+    --sidebar-primary: 0.68 0.18 55;
+    --sidebar-primary-foreground: 0.99 0 0;
+    --sidebar-accent: 0.35 0.1 260;
+    --sidebar-accent-foreground: 0.99 0 0;
+    --sidebar-border: 0.35 0.1 260;
+    --sidebar-ring: 0.68 0.18 55;
+    /* Custom trust tokens */
+    --trust-saffron: oklch(0.68 0.18 55);
+    --trust-navy: oklch(0.28 0.12 260);
+    --trust-navy-light: oklch(0.35 0.1 260);
+    --trust-saffron-light: oklch(0.85 0.12 55);
+    --trust-section-bg: oklch(0.97 0.005 260);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Noto Sans Devanagari", "PlusJakartaSans", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Noto Sans Devanagari", "PlusJakartaSans", sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .trust-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--trust-navy) 0%,
+      oklch(0.35 0.14 260) 100%
+    );
+  }
+
+  .saffron-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--trust-saffron) 0%,
+      oklch(0.72 0.2 45) 100%
+    );
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      135deg,
+      rgba(18, 30, 80, 0.88) 0%,
+      rgba(30, 58, 138, 0.75) 60%,
+      rgba(30, 58, 138, 0.5) 100%
+    );
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .print-only {
+    display: none;
+  }
+
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+    .print-only {
+      display: block !important;
+    }
+  }
+
+  .counter-card {
+    @apply rounded-2xl p-5 text-center shadow-md card-hover;
+  }
+
+  .service-card {
+    @apply rounded-2xl p-6 shadow-md card-hover cursor-pointer;
+  }
+
+  .tribute-slider-height {
+    min-height: 55vh;
+  }
+
+  @media (min-width: 768px) {
+    .tribute-slider-height {
+      min-height: 70vh;
+    }
+  }
+
+  .section-title {
+    @apply text-3xl font-bold text-center mb-3;
+    color: var(--trust-navy);
+  }
+
+  .section-subtitle {
+    @apply text-center text-base mb-10;
+    color: oklch(0.48 0.03 260);
+  }
+}
